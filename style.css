@@ -1,0 +1,305 @@
+:root {
+  --ivory: #f6f1eb;
+  --warm: #ebe2d6;
+  --taupe: #d2c4b6;
+  --ink: #171412;
+  --muted: #665f58;
+  --navy: #151d34;
+  --navy-soft: #222b48;
+  --gold: #b99662;
+  --line: rgba(23, 20, 18, .16);
+  --shadow: 0 28px 80px rgba(30, 24, 18, .12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--ivory);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(21, 29, 52, .08), transparent 28rem),
+    radial-gradient(circle at 92% 18%, rgba(185, 150, 98, .12), transparent 24rem),
+    linear-gradient(90deg, rgba(255,255,255,.22), transparent 18%, transparent 82%, rgba(255,255,255,.18));
+  pointer-events: none;
+  z-index: -2;
+}
+.star-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: .28;
+  background-image: radial-gradient(var(--gold) .8px, transparent 1px);
+  background-size: 120px 120px;
+  mask-image: linear-gradient(to bottom, black, transparent 70%);
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.site-header {
+  width: min(1280px, calc(100% - 44px));
+  margin: 0 auto;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.35rem, 2.1vw, 2rem);
+  letter-spacing: -.02em;
+}
+.moon { color: var(--gold); margin-right: .35rem; }
+nav { display: flex; gap: clamp(18px, 3vw, 42px); align-items: center; }
+nav a, .kicker, .number {
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.hero, .section, .project-feature, .case-hero, .case-cover, .quote-section, .next-project {
+  width: min(1280px, calc(100% - 44px));
+  margin: 0 auto;
+}
+.hero {
+  padding: clamp(90px, 13vw, 170px) 0 clamp(80px, 10vw, 130px);
+  border-bottom: 1px solid var(--line);
+}
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  line-height: .95;
+  letter-spacing: -.045em;
+  margin: 0;
+}
+h1 { font-size: clamp(4rem, 10vw, 9.4rem); max-width: 1060px; }
+h2 { font-size: clamp(2.8rem, 6vw, 6.1rem); }
+h3 { font-size: clamp(1.7rem, 3vw, 2.45rem); }
+p { color: var(--muted); line-height: 1.75; font-size: 1rem; }
+.hero-text { max-width: 640px; font-size: 1.16rem; margin-top: 28px; }
+.button-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+.button, .contact-form button {
+  min-width: 150px;
+  padding: 15px 22px;
+  border: 1px solid var(--ink);
+  font-weight: 700;
+  text-align: center;
+  transition: transform .25s ease, background .25s ease, color .25s ease;
+}
+.button:hover, .contact-form button:hover { transform: translateY(-3px); }
+.button.dark, .contact-form button { background: var(--ink); color: var(--ivory); }
+.button.light { background: transparent; color: var(--ink); }
+
+.section { padding: clamp(76px, 10vw, 130px) 0; }
+.work-intro {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 56px;
+  align-items: end;
+}
+.center { text-align: center; }
+
+.project-feature {
+  padding: clamp(44px, 6vw, 76px) 0;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(34px, 5vw, 72px);
+  align-items: center;
+  border-top: 1px solid var(--line);
+}
+.project-feature.reverse { grid-template-columns: .85fr 1.15fr; }
+.project-feature.reverse .project-image { order: 2; }
+.project-image {
+  background: var(--warm);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.project-image img, .case-cover img, .gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid rgba(23,20,18,.12);
+}
+.project-image img { aspect-ratio: 16 / 9; }
+.project-copy p:not(.number) { max-width: 540px; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0; }
+.tags span {
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: .82rem;
+  background: rgba(255,255,255,.24);
+}
+.text-link { font-weight: 700; border-bottom: 1px solid currentColor; padding-bottom: 5px; }
+
+.about-preview, .about-page {
+  display: grid;
+  grid-template-columns: .7fr 1fr;
+  gap: clamp(34px, 6vw, 80px);
+  align-items: center;
+  border-top: 1px solid var(--line);
+}
+.about-preview img, .about-page img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 40% center;
+  filter: saturate(.95) contrast(.98);
+}
+.about-page h1 { font-size: clamp(4.5rem, 9vw, 8rem); }
+
+.quote-section {
+  padding: clamp(80px, 12vw, 150px) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+.quote-section p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.4rem, 8vw, 8.5rem);
+  line-height: .95;
+  color: var(--ink);
+  letter-spacing: -.045em;
+  max-width: 1050px;
+  margin: 0 auto 24px;
+}
+.quote-section span { color: var(--muted); font-size: 1.05rem; }
+
+.skill-grid, .case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 42px;
+}
+.skill-grid article, .case-grid article {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 0;
+}
+
+.contact { border-top: 1px solid var(--line); }
+.contact-text { text-align: center; margin: -12px auto 34px; }
+.contact-form {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+.contact-form input, .contact-form textarea {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: 18px 0;
+  font: inherit;
+  color: var(--ink);
+  outline: none;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--ink); }
+.contact-form button { cursor: pointer; margin-top: 14px; }
+
+.case-hero {
+  padding: clamp(80px, 12vw, 150px) 0 64px;
+}
+.case-hero p:not(.kicker) { max-width: 760px; font-size: 1.12rem; }
+.navy-case { color: var(--ink); }
+.case-cover { padding: 0 0 70px; }
+.case-cover img { aspect-ratio: 16 / 9; box-shadow: var(--shadow); background: var(--warm); padding: 12px; }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 38px;
+}
+.gallery img { aspect-ratio: 16 / 9; box-shadow: var(--shadow); background: var(--warm); padding: 10px; }
+.next-project { padding: 70px 0 110px; text-align: center; }
+.next-project a { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 5rem); }
+
+footer {
+  width: min(1280px, calc(100% - 44px));
+  margin: 0 auto;
+  padding: 34px 0 54px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+footer p { margin: 0; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .75s ease, transform .75s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 860px) {
+  .site-header { min-height: auto; padding: 20px 0; align-items: flex-start; flex-direction: column; gap: 16px; }
+  nav { gap: 18px; flex-wrap: wrap; }
+  .work-intro, .project-feature, .project-feature.reverse, .about-preview, .about-page, .skill-grid, .case-grid, .gallery { grid-template-columns: 1fr; }
+  .project-feature.reverse .project-image { order: 0; }
+  h1 { font-size: clamp(3.4rem, 17vw, 5.4rem); }
+  h2 { font-size: clamp(2.7rem, 13vw, 4.6rem); }
+  .hero { padding-top: 80px; }
+}
+
+@media (max-width: 560px) {
+  .hero, .section, .project-feature, .case-hero, .case-cover, .quote-section, .next-project, .site-header, footer { width: min(100% - 28px, 1280px); }
+  nav a { font-size: .72rem; }
+  .brand { font-size: 1.45rem; }
+  .button { width: 100%; }
+  .project-image, .case-cover img, .gallery img { padding: 7px; }
+  .quote-section p { font-size: clamp(3rem, 17vw, 4.8rem); }
+}
+
+
+/* Final polish: Samantha portrait + contact spacing fixes */
+.about-preview img,
+.about-page img {
+  object-position: 50% 28%;
+}
+
+.contact h2 {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.02;
+  font-size: clamp(2.6rem, 6.5vw, 5.2rem);
+}
+
+.contact-text {
+  max-width: 620px;
+  line-height: 1.7;
+}
+
+.contact-form button {
+  width: fit-content;
+  justify-self: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media (max-width: 560px) {
+  .contact h2 {
+    font-size: clamp(2.3rem, 12vw, 3.6rem);
+    line-height: 1.04;
+  }
+
+  .contact-text {
+    margin-top: 10px;
+    margin-bottom: 28px;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+}
