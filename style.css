@@ -74,7 +74,7 @@ nav a, .kicker, .number {
   margin: 0 auto;
 }
 .hero {
-  padding: clamp(90px, 13vw, 170px) 0 clamp(80px, 10vw, 130px);
+  padding: clamp(35px, 7vw, 80px) 0 clamp(80px, 10vw, 130px);
   border-bottom: 1px solid var(--line);
 }
 h1, h2, h3 {
@@ -202,7 +202,8 @@ p { color: var(--muted); line-height: 1.75; font-size: 1rem; }
   border: 0;
   border-bottom: 1px solid var(--line);
   background: transparent;
-  padding: 18px 0;
+  padding: 20px;
+  border-radius: 14px;
   font: inherit;
   color: var(--ink);
   outline: none;
@@ -272,8 +273,8 @@ footer p { margin: 0; }
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.02;
-  font-size: clamp(2.6rem, 6.5vw, 5.2rem);
+  line-height: 1.08;
+  font-size: clamp(2.2rem, 5.5vw, 4.4rem);
 }
 
 .contact-text {
