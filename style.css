@@ -191,7 +191,7 @@ p { color: var(--muted); line-height: 1.75; font-size: 1rem; }
 }
 
 .contact { border-top: 1px solid var(--line); }
-.contact-text { text-align: center; margin: -12px auto 34px; }
+.contact-text { text-align: center; margin: 30px auto 50px; }
 .contact-form {
   width: min(760px, 100%);
   margin: 0 auto;
